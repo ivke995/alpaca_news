@@ -15,6 +15,8 @@ class Source extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'link_logo', 'path_scraper'];
+
     public function articles()
     {
         return $this->hasMany(Article::class);
