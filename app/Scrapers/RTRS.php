@@ -15,6 +15,21 @@ class RTRS extends Scraper
     protected string $imageLinkAttribute = 'src';
     protected bool $hasLocalUrls = true;
     protected bool $hasLocalImageUrls = true;
+    protected string $categorySelector = '.sel';
+    protected array $categoryAssign = [
+        'Република Српска' => 1,
+        'Спорт' => 3,
+        'БиХ' => 1,
+        'Србија' => 1,
+        'Регион' => 1,
+        'Свијет' => 1,
+        'Хроника' => 1,
+        'Привреда' => 4,
+        'Култура' => 5,
+        'Друштво' => 7,
+        'Вријеме' => 1,
+        'Вијести' => 1
+    ];
 
 
 }

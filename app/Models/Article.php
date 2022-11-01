@@ -18,7 +18,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['link', 'image_url', 'title', 'text', 'source_id'];
+    protected $fillable = ['source_id', 'category_id', 'link', 'image_url', 'title', 'text'];
 
     public static function boot()
     {
@@ -50,6 +50,11 @@ class Article extends Model
     public function source()
     {
         return $this->belongsTo(Source::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function existsWithLink(string $link): bool

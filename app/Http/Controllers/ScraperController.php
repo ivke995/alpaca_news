@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Source;
 
 class ScraperController extends Controller
@@ -21,6 +22,15 @@ class ScraperController extends Controller
         $article = Article::findOrFail($id);
 
         return view('show', compact('article', 'articles'));
+    }
+
+    public function category(int $id)
+    {
+        $category = Category::findOrFail($id);
+        $sources = Source::all();
+
+
+        return view('index', compact('category', 'sources'));
     }
 
 

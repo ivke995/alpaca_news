@@ -4,6 +4,7 @@ namespace App\Scrapers;
 
 use App\Helpers\FileStorage;
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Source;
 use Goutte\Client;
 use Symfony\Component\HttpClient\HttpClient;
@@ -23,6 +24,10 @@ class Scraper
     protected string $bigImageSelector;
     protected bool $saveImagesLocally = false;
     protected int $sleepTimePerArticle = 0;
+    protected string $categorySelector;
+    protected array $categoryAssign;
+    protected bool $hasUrlCategory = false;
+
 
     private Client $client;
 
@@ -80,6 +85,10 @@ class Scraper
 
         $page = $this->client->request('GET', $article->link);
         $texts = '';
+
+        $category = $page->filter($this->categorySelector)->text();
+
+        $article->category_id = $this->categoryAssign[$category] ?? 10;
 
         $page->filter($this->contentSelector)->each(function ($node) use (&$texts){
             $texts .= "\n" . $node->text();
