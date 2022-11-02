@@ -18,6 +18,11 @@
 </head>
 <body>
 
+<form class="d-flex" role="search" type="get" action="{{ url('/search') }}">
+    <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search" style="width: 25%">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
 <div class="container">
     <div class="row">
         @foreach($sources as $source)
