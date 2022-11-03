@@ -1,7 +1,7 @@
 
 @extends('layout')
 @section('content')
-    
+
 
 
 
@@ -52,6 +52,10 @@
     </div>
 
 </div>
+
+    <h1>{{ $article->firstParagraph }}</h1>
+    <h3>{{ $article->restOfText }}</h3>
+
 <div style="position:fixed; top: 10px; left: 10px">
     <button type="button" class="btn btn-primary backBtn"><a style="color: white; text-decoration: none;" href="{{ url()->previous() }}">Nazad</a></button>
 </div>

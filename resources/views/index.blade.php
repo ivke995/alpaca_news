@@ -7,13 +7,18 @@
                 <div class="card text-center mt-4">
                     <h5 class="card-header"><img src="{{ $source->link_logo }}" alt="{{ $source->name }}" style="height: 20px" /> {{ $source->name }}</h5>
                     <div class="card-body" style="max-height: 90vh; overflow-y: auto; overflow-x: hidden;">
-
                         @if(isset($category) && $category)
-                            @foreach($source->articles()->where('category_id', $category->id)->orderBy('created_at', 'desc')->limit(40)->get() as $article)
+                            @foreach($source->articles()->where('category_id', $category->id)->orderBy('created_at', 'desc')->limit(40)->get() as $index => $article)
+                                @if(!($index % 5) && $index)
+                                    @include('article-advertise')
+                                @endif
                                 @include('article', ['article' => $article])
                             @endforeach
                         @else
-                            @foreach($source->articles()->orderBy('created_at', 'desc')->limit(40)->get() as $article)
+                            @foreach($source->articles()->orderBy('created_at', 'desc')->limit(40)->get() as $index => $article)
+                                @if(!($index % 5) && $index)
+                                    @include('article-advertise')
+                                @endif
                                 @include('article', ['article' => $article])
                             @endforeach
                         @endif

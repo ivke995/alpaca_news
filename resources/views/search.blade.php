@@ -1,9 +1,6 @@
-
-
-@include('navbar')
+@extends('layout')
 @section('content')
 <body>
-
 
     <div class="container">
         <div class="row">
@@ -19,5 +16,4 @@
 
 </body>
 @endsection
-@include('footer')
 

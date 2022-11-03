@@ -11,12 +11,15 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @mixin Builder
  * @property $link
+ * @property $firstParagraph
+ * @property $restOfText
  */
 
 
 class Article extends Model
 {
     use HasFactory;
+
 
     protected $fillable = ['source_id', 'category_id', 'link', 'image_url', 'title', 'text'];
 
@@ -34,6 +37,8 @@ class Article extends Model
         });
 
     }
+
+//    public static function firstParagraph
 
     public static function processLink(string $link): string
     {
@@ -63,4 +68,16 @@ class Article extends Model
 
         return (new Article())->where('link', $link)->exists();
     }
+
+    public function getFirstParagraphAttribute(): string
+    {
+        return explode("\n", $this->text)[0];
+    }
+
+    public function getRestOfTextAttribute(): string
+    {
+        return explode("\n", $this->text, 2)[1];
+    }
+
+
 }

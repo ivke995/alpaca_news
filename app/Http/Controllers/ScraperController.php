@@ -21,6 +21,9 @@ class ScraperController extends Controller
         $articles = Article::limit(5)->get();
         $article = Article::findOrFail($id);
 
+        $article->visits++;
+        $article->save();
+
         return view('show', compact('article', 'articles'));
     }
 

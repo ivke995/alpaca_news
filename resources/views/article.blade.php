@@ -12,6 +12,8 @@
         </div>
     </div>
 
+
+
     <div class="col-md-7 mb-4">
         <h5 class="text-start"><strong><span class="badge bg-danger px-2 py-1 shadow-1-strong">{{ $article->source->name }}</span> {{ $article->title }}</strong></h5>
         <p class="text-muted small text-start">

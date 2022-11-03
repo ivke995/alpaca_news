@@ -91,7 +91,7 @@ class Scraper
         $article->category_id = $this->categoryAssign[$category] ?? 10;
 
         $page->filter($this->contentSelector)->each(function ($node) use (&$texts){
-            $texts .= "\n" . $node->text();
+            $texts .=$node->text() . "\n";
         });
 
         if($this->hasSmallImages) {
@@ -107,7 +107,7 @@ class Scraper
             }
         }
 
-        $article->text = $texts;
+        $article->text = trim($texts);
 
         $article->save();
 

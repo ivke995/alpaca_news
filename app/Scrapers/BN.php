@@ -13,6 +13,7 @@ class BN extends Scraper
     protected array $titleSelectors = ['.news-txt > h2 > .showNewsDetail'];
     protected string $contentSelector = '.txt';
     protected string $imageLinkAttribute = 'data-src';
+    protected bool $saveImagesLocally = true;
     protected string $categorySelector = '.news-detail-txt > strong';
     protected array $categoryAssign = [
         'Fudbal' => 3,
