@@ -1,32 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>Home</title>
-
-    <style>
-        .card-text {
-            text-align: right;
-        }
-
-    </style>
-</head>
-<body>
-
-<div style="position:fixed; top: 10px; left: 10px">
-    <button type="button" class="btn btn-primary"><a style="color: white; text-decoration: none" href="{{ url()->previous() }}">Nazad</a></button>
-    <button type="button" class="btn btn-primary"><a style="color: white; text-decoration: none" href="{{ route('index') }}">Pocetna</a></button>
-</div>
+@extends('layout')
+@section('content')
+    
 
 
 
-<div class="container" style="width: 45%;">
+
+
+<div class="container singleMar" style="width: 60%;">
 
 
     <div class="card px-3 pt-3" style="">
@@ -34,7 +15,7 @@
         <!-- News block -->
         <div>
             <!-- Featured image -->
-            <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4" data-mdb-ripple-color="light">
+            <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4 centar" data-mdb-ripple-color="light">
                 <img src="{{ $article->image_url }}" class="img-fluid"/>
                 <a href="#!">
                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
@@ -71,10 +52,8 @@
     </div>
 
 </div>
-
-
-</body>
-</html>
-
-
-
+<div style="position:fixed; top: 10px; left: 10px">
+    <button type="button" class="btn btn-primary backBtn"><a style="color: white; text-decoration: none;" href="{{ url()->previous() }}">Nazad</a></button>
+</div>
+</div>
+@endsection

@@ -30,6 +30,7 @@ class ScraperController extends Controller
         $sources = Source::all();
 
 
+
         return view('index', compact('category', 'sources'));
     }
 

@@ -1,3 +1,139 @@
 .container {
     margin-top: 30px;
 }
+
+.backBtn {
+    position: absolute;
+    top: 70px;
+    width: 80px;
+    height: 40px;
+}
+
+nav {
+    margin-top: -8px;
+    z-index: 100;
+}
+
+.navbar {
+    background-color: #0a4275;
+    height: 60px;
+    padding-top: 13px;
+    font-size: 18px;
+}
+
+nav a {
+    color: white;
+}
+.singleMar {
+    margin-top: 70px !important;
+}
+
+.centar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: #0a4275;
+}
+
+.btn-sm {
+    width: 50px;
+    margin-left: 10px;
+}
+
+nav a {
+    margin: 5px;
+    text-transform: uppercase;
+}
+nav a:hover {
+    text-decoration: solid 1px white;
+    color: #dc3545;
+}
+
+nav a:active {
+    color: #dc3545;
+}
+
+.btnSearch {
+    color: white;
+    border: white 1px solid;
+}
+
+.btnSearch:hover {
+    background-color: white;
+    color: #0a4275;
+}
+
+@media (max-width: 990px) {
+    .navbar {
+        margin-top: -7px;
+    }
+    .container {
+        width: 80% !important;
+    }
+    .navbar-brand {
+        margin-top: 0;
+        font-size: 1rem;
+    }
+    .navbar-toggler {
+        background-color: #0a4275;
+        margin-top: -6px;
+    }
+    .navbar-nav {
+        background-color: #0a4275;
+        width: 100% !important;
+        margin-top: 10px;
+    }
+    .navbar-collapse {
+        width: 100%;
+    }
+    nav a {
+        text-align: center;
+        border-bottom: 1px solid white;
+    }
+    .navbar-brand {
+        border: none;
+    }
+    nav a {
+        margin: 0px;
+        font-size: 20px !important;
+    }
+
+    .d-flex {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, 10px);
+    }
+    .nav-link {
+        padding-bottom: 13px;
+    }
+    .hamb {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 1420px) {
+    nav a {
+        margin: 0px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1116px) {
+    nav a {
+        margin: 0px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        width: 95% !important;
+    }
+}
