@@ -29,9 +29,7 @@ class ScraperController extends Controller
         $category = Category::findOrFail($id);
         $sources = Source::all();
 
-
-
-        return view('index', compact('category', 'sources'));
+        return view('index', compact( 'sources', 'category'));
     }
 
 

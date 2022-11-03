@@ -23,3 +23,4 @@ Route::get('/show/{id}', [\App\Http\Controllers\ScraperController::class, 'show'
 
 Route::get('/category/{id}', [\App\Http\Controllers\ScraperController::class, 'category'])->name('category');
 
+Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
