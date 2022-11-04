@@ -2,6 +2,16 @@
 @extends('layout')
 @section('content')
 
+<div class="category">
+   
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        @foreach (App\Models\Category::all() as $category)
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('category', $category->id) }}">{{ $category->name }}</a>
+        </li>
+        @endforeach
+      </ul>
+</div>
 
 <img src="{{ $article->image_url }}" class="img-fluid"/>
 <div class="newsContent">
@@ -15,16 +25,29 @@
 
 
 </div>
+
 <div class="scrolling-wrapper">
     @foreach($articles as $smallArticle)
         @include('smallArticle', ["article"=>$smallArticle] )
     @endforeach
-    </div>
-<div class="mobileNav ">
+</div>
+<div class="mobileNav nav-menu">
+    <a href="javascript:void(0);"onclick="myFunction()">
+    <div class="categoriesBtn">
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+    </div>   
+    </a> 
+  
+    
     <i class="bi bi-house"></i>
     <i class="bi bi-arrow-up-right-circle"></i>
-    <i class="bi bi-list"></i>
     <i class="bi bi-person"></i>
+
 </div>
 
 
