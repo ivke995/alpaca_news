@@ -3,11 +3,34 @@
 @section('content')
 
 
+<img src="{{ $article->image_url }}" class="img-fluid"/>
+<div class="newsContent">
+    <h2>{{ $article->title }}</h2>
+    <div class="newsInfo"><div>{{ $article->source->name }}</div> <i class="bi bi-eye"></i></div>
+    <div>{{ $article->firstParagraph }}</div>
+    <div class="newsText">{{ $article->text }}</div>
+
+    <hr/>
+
+
+
+</div>
+<div class="scrolling-wrapper">
+    @foreach($articles as $smallArticle)
+        @include('smallArticle', ["article"=>$smallArticle] )
+    @endforeach
+    </div>
+<div class="mobileNav ">
+    <i class="bi bi-house"></i>
+    <i class="bi bi-arrow-up-right-circle"></i>
+    <i class="bi bi-list"></i>
+    <i class="bi bi-person"></i>
+</div>
 
 
 
 
-<div class="container singleMar" style="width: 60%;">
+{{-- <div class="container singleMar" style="width: 100%">
 
 
     <div class="card px-3 pt-3" style="">
@@ -52,6 +75,7 @@
     </div>
 
 </div>
+<<<<<<< Updated upstream
 
     <h1>{{ $article->firstParagraph }}</h1>
     <h3>{{ $article->restOfText }}</h3>
@@ -59,5 +83,8 @@
 <div style="position:fixed; top: 10px; left: 10px">
     <button type="button" class="btn btn-primary backBtn"><a style="color: white; text-decoration: none;" href="{{ url()->previous() }}">Nazad</a></button>
 </div>
+=======
+>>>>>>> Stashed changes
 </div>
+</div> --}}
 @endsection

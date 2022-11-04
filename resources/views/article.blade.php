@@ -1,6 +1,6 @@
 <!--Section: News of the day-->
-<div class="row gx-5">
-    <div class="col-md-5 mb-4">
+<div class="row gx-5 forHorScroll">
+    <div class="col-md-5 mb-4 singleHor" >
         <div class="bg-image hover-overlay ripple shadow-2-strong">
             <img src="{{ $article->image_url }}" class="img-fluid rounded-lg shadow-sm" style="border-radius: 0.5rem; width: 100%" />
 
