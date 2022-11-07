@@ -5,8 +5,17 @@
 
 body {
     font-family: "Montserrat", sans-serif;
+    /* overflow: hidden; */
+    background-color: #395144;
+    color: #f0ebce;
 }
 
+.card {
+    background-color: #395144;
+}
+.text-muted {
+    color: #f0ebce !important;
+}
 .newsContent {
     margin: 30px;
 }
@@ -19,7 +28,9 @@ body {
 .newsText {
     margin-top: 20px;
 }
-
+.blek {
+    color: #f0ebce;
+}
 .mobileNav {
     width: 100%;
     height: 60px;
@@ -31,6 +42,18 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 32px;
+    z-index: 100;
+    background-color: #4e6c50;
+    border-top: 1px solid #f0ebce;
+}
+
+.mobileNav i {
+    font-size: 28px;
+}
+
+.visit {
+    display: flex;
+    gap: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -40,6 +63,10 @@ body {
 ::-webkit-scrollbar-button {
     width: 2px;
     height: 2px;
+}
+
+.btn-primary {
+    border: 1px solid #aa8b56 !important;
 }
 
 .scrolling-wrapper {
@@ -73,6 +100,10 @@ body {
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
+}
+
+.smallArticle b {
+    color: #f0ebce;
 }
 
 .smallArticle::after {
@@ -182,7 +213,7 @@ nav a {
 }
 
 .btn {
-    background-color: #0a4275;
+    background-color: #4e6c50;
 }
 
 .btn-sm {
@@ -234,6 +265,8 @@ nav a:active {
         text-align: center;
         text-transform: uppercase;
         color: black;
+        position: fixed;
+        bottom: 60px;
     }
     .navbar-collapse {
         width: 100%;
@@ -291,12 +324,24 @@ nav a:active {
     }
 }
 
-.category {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.2);
+.categoriesBtn {
+    display: inline-block;
+    padding-top: 3px;
+}
 
+.category ul li {
+    display: flex;
+    justify-content: space-around;
+}
+
+#category {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    /* position: absolute; */
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
@@ -308,9 +353,13 @@ nav a:active {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     display: none;
+    transform: translateX(-0px);
+    transition: transform 500ms ease-in-out;
+    z-index: 15;
+    top: 0;
 }
 
-input[type="checkbox"]:checked ~ #sidebarMenu {
+input[type="checkbox"]:checked ~ #category {
     transform: translateX(0);
 }
 
@@ -323,7 +372,6 @@ input[type="checkbox"] {
     transition: all 0.3s;
     box-sizing: border-box;
     cursor: pointer;
-    position: absolute;
     z-index: 99;
     height: 100%;
     width: 100%;
@@ -331,6 +379,7 @@ input[type="checkbox"] {
     left: 15px;
     height: 22px;
     width: 22px;
+    padding-top: 3px;
 }
 .spinner {
     transition: all 0.3s;
@@ -338,7 +387,7 @@ input[type="checkbox"] {
     position: absolute;
     height: 3px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.888);
+    background-color: #f0ebce;
 }
 .horizontal {
     transition: all 0.3s;

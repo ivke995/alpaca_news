@@ -2,28 +2,15 @@
 @extends('layout')
 @section('content')
 
-<div class="category">
-   
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        @foreach (App\Models\Category::all() as $category)
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('category', $category->id) }}">{{ $category->name }}</a>
-        </li>
-        @endforeach
-      </ul>
-</div>
+
 
 <img src="{{ $article->image_url }}" class="img-fluid"/>
 <div class="newsContent">
     <h2>{{ $article->title }}</h2>
-    <div class="newsInfo"><div>{{ $article->source->name }}</div> <i class="bi bi-eye"></i></div>
-    <div>{{ $article->firstParagraph }}</div>
-    <div class="newsText">{{ $article->text }}</div>
-
+    <div class="newsInfo"><div>{{ $article->source->name }}</div> <div class="visit"><p>{{ $article->visits }}</p><i class="bi bi-eye"></i></div></div>
+    <div><b>{{ $article->firstParagraph }}</b></div>
+    <div class="newsText">{{ $article->restOfText }}</div>
     <hr/>
-
-
-
 </div>
 
 <div class="scrolling-wrapper">
@@ -31,24 +18,7 @@
         @include('smallArticle', ["article"=>$smallArticle] )
     @endforeach
 </div>
-<div class="mobileNav nav-menu">
-    <a href="javascript:void(0);"onclick="myFunction()">
-    <div class="categoriesBtn">
-    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-    <label for="openSidebarMenu" class="sidebarIconToggle">
-      <div class="spinner diagonal part-1"></div>
-      <div class="spinner horizontal"></div>
-      <div class="spinner diagonal part-2"></div>
-    </label>
-    </div>   
-    </a> 
-  
-    
-    <i class="bi bi-house"></i>
-    <i class="bi bi-arrow-up-right-circle"></i>
-    <i class="bi bi-person"></i>
 
-</div>
 
 
 
