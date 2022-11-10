@@ -20,8 +20,7 @@ class Article extends Model
 {
     use HasFactory;
 
-
-    protected $fillable = ['source_id', 'category_id', 'link', 'image_url', 'title', 'text'];
+    protected $fillable = ['source_id', 'category_id', 'link', 'image_url', 'title', 'text', 'slug', 'external_source'];
 
     public static function boot()
     {
@@ -60,6 +59,11 @@ class Article extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function externals()
+    {
+        return $this->hasMany(External::class);
     }
 
     public function existsWithLink(string $link): bool

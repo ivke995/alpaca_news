@@ -16,10 +16,14 @@ class ScraperController extends Controller
         return view('index', compact('sources', 'articles'));
     }
 
-    public function show(int $id)
+    public function show(string $slug)
     {
         $articles = Article::limit(5)->get();
-        $article = Article::findOrFail($id);
+        $article = Article::where('slug', $slug)->first();
+
+        if(!$article) {
+            return redirect()->route('index');
+        }
 
         $article->visits++;
         $article->save();
@@ -29,8 +33,12 @@ class ScraperController extends Controller
 
     public function category(int $id)
     {
-        $category = Category::findOrFail($id);
+        $category = Category::find($id);
         $sources = Source::all();
+
+        if(!$category) {
+            return redirect()->route('index');
+        }
 
         return view('index', compact( 'sources', 'category'));
     }

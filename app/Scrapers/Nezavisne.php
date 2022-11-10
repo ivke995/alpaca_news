@@ -15,6 +15,7 @@ class Nezavisne extends Scraper
     protected string $bigImageSelector = '.img-fluid.img-responsive';
     protected bool $saveImagesLocally = true;
     protected string $categorySelector = '.container > .row > .col-lg-12 h4';
+    protected string $externalSource = '.vijestTijelo > img';
     protected array $categoryAssign = [
         'Svijet' => 1,
         'BiH' => 1,

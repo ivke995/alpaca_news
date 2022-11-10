@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\ScraperController::class, 'index'])->name('index');
 
-Route::get('/show/{id}', [\App\Http\Controllers\ScraperController::class, 'show'])->name('show');
+Route::get('/show/{slug}', [\App\Http\Controllers\ScraperController::class, 'show'])->name('show');
 
 Route::get('/category/{id}', [\App\Http\Controllers\ScraperController::class, 'category'])->name('category');
 

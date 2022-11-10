@@ -14,6 +14,7 @@ class ATV extends Scraper
     protected string $contentSelector = '.article-content p';
     protected string $imageLinkAttribute = 'src';
     protected string $categorySelector = '.breadcrumb > li:nth-of-type(3)';
+    protected string $externalSource = '.nwzbody > img';
     protected array $categoryAssign = [
         'Republika Srpska' => 1,
         'Hronika' => 1,

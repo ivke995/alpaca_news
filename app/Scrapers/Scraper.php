@@ -5,9 +5,12 @@ namespace App\Scrapers;
 use App\Helpers\FileStorage;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\External;
 use App\Models\Source;
 use Goutte\Client;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpClient\HttpClient;
+use function Sodium\compare;
 
 class Scraper
 {
@@ -27,6 +30,8 @@ class Scraper
     protected string $categorySelector;
     protected array $categoryAssign;
     protected bool $hasUrlCategory = false;
+    protected bool $hasExternalSource = false;
+    protected string $externalSource;
 
 
     private Client $client;
@@ -38,6 +43,7 @@ class Scraper
 
     public function scrape(Source $source) {
         $page = $this->client->request('GET', $this->url);
+
 
         foreach ($this->boxSelectors as $i => $boxSelector) {
             $page->filter($boxSelector)->each(function ($node) use ($source, $i) {
@@ -70,7 +76,9 @@ class Scraper
                     $image_url = $this->url . $image_url;
                 }
 
-                $article = (new Article())->create(compact('title', 'image_url', 'link', 'source_id'));
+                $slug = Str::slug($title);
+
+                $article = (new Article())->create(compact('title', 'image_url', 'link', 'source_id', 'slug'));
 
                 $this->scrapeContent($article);
             });
@@ -83,15 +91,34 @@ class Scraper
             sleep($this->sleepTimePerArticle);
         }
 
+
         $page = $this->client->request('GET', $article->link);
+
+        $page->filter($this->externalSource)->each(function ($node) use ($article) {
+            $external_source = $node->getNode(0)->getAttribute('src');
+            if(!$external_source) {
+                return;
+            }
+
+            $new_external_source = (new External())->create([
+                'external_source' => $external_source,
+                'article_id' => $article -> id
+            ]);
+
+            $new_external_source->save();
+
+        });
+
         $texts = '';
 
         $category = $page->filter($this->categorySelector)->text();
+
 
         $article->category_id = $this->categoryAssign[$category] ?? 10;
 
         $page->filter($this->contentSelector)->each(function ($node) use (&$texts){
             $texts .=$node->text() . "\n";
+
         });
 
         if($this->hasSmallImages) {
@@ -113,4 +140,6 @@ class Scraper
 
         return $article;
     }
+
+
 }
