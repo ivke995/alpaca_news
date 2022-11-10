@@ -7,7 +7,7 @@
              </a>
 
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-            
+
         </div>
     </div>
 
