@@ -5,13 +5,30 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    /* overflow: hidden; */
-    background-color: #395144;
-    color: #f0ebce;
+    background-color: #041c32;
+    color: #f7e7ce;
+}
+.margin0 {
+    margin: 0 !important;
+}
+
+.card-body {
+    margin: 0 !important;
+}
+
+.card-header {
+    border-bottom: 1px solid #064663;
+}
+
+.dzona {
+    height: 117px;
 }
 
 .card {
-    background-color: #395144;
+    background-color: #041c32;
+    height: 280px;
+    width: auto;
+    border: solid 1px #064663;
 }
 .text-muted {
     color: #f0ebce !important;
@@ -37,14 +54,14 @@ body {
     position: fixed;
     bottom: 0;
     z-index: 10;
-    background-color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 32px;
     z-index: 100;
-    background-color: #4e6c50;
-    border-top: 1px solid #f0ebce;
+    background-color: #04293a;
+    border-top: 1px solid #ecb365;
+    color: #f7e7ce;
 }
 
 .mobileNav i {
@@ -66,7 +83,42 @@ body {
 }
 
 .btn-primary {
-    border: 1px solid #aa8b56 !important;
+    border: 1px solid #ecb365 !important;
+}
+
+.scrolling-wrapper1 {
+    margin: -40px auto;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+    height: calc(210px + 4rem);
+    padding: 1, 3rem;
+    max-width: 1000px;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-top: 0;
+    margin-right: 20px;
+}
+
+.scrolling-wrapper1 > div {
+    scroll-snap-align: center;
+    height: 200px;
+}
+
+.scrolling-wrapper1 img {
+    width: 340px;
+    max-width: none;
+    object-fit: contain;
+    border-radius: 1rem;
+    object-fit: cover;
+    height: 200px;
+}
+
+.container {
+    height: auto;
 }
 
 .scrolling-wrapper {
@@ -74,10 +126,10 @@ body {
     display: grid;
     grid-auto-flow: column;
     gap: 1rem;
-    height: calc(210px + 4rem);
+    height: calc(210px + 1rem);
     padding: 1rem;
     max-width: 1000px;
-    overflow-y: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     margin-bottom: 30px;
@@ -85,7 +137,7 @@ body {
 
 .scrolling-wrapper > div {
     scroll-snap-align: center;
-    height: 73%;
+    height: 200px;
 }
 
 .scrolling-wrapper img {
@@ -93,17 +145,18 @@ body {
     max-width: none;
     object-fit: contain;
     border-radius: 1rem;
+    object-fit: cover;
+    height: 200px;
 }
 
 .smallArticle {
-    margin-top: 20px;
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
 }
 
 .smallArticle b {
-    color: #f0ebce;
+    color: #f7e7ce;
 }
 
 .smallArticle::after {
@@ -173,11 +226,7 @@ body {
 }
 
 .category nav ul li {
-    color: black;
-}
-
-.container {
-    margin-top: 30px;
+    color: #041c32;
 }
 
 .backBtn {
@@ -213,7 +262,7 @@ nav a {
 }
 
 .btn {
-    background-color: #4e6c50;
+    background-color: #064663;
 }
 
 .btn-sm {
@@ -225,13 +274,9 @@ nav a {
     margin: 5px;
     text-transform: uppercase;
 }
-nav a:hover {
-    text-decoration: solid 1px white;
-    color: #dc3545;
-}
 
-nav a:active {
-    color: #dc3545;
+.forHorScroll1 {
+    width: 250px;
 }
 
 .btnSearch {
@@ -250,6 +295,7 @@ nav a:active {
     }
     .container {
         width: 80% !important;
+        margin-bottom: 90px;
     }
     .navbar-brand {
         margin-top: 0;
