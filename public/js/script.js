@@ -10,3 +10,13 @@ x.addEventListener("click", function () {
         categories.style.display = "block";
     }
 });
+
+const sourceNews = document.querySelectorAll(".scrolling-wrapper");
+sourceNews.forEach((el) => {
+    if (el.childNodes.length == 1) {
+        el.closest(".margin0").style.display = "none";
+    }
+});
+
+const row = document.querySelector(".row");
+console.log(row.childNodes.length);
