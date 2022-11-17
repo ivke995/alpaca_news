@@ -9,11 +9,11 @@
       <div class="spinner horizontal"></div>
       <div class="spinner diagonal part-2"></div>
     </label>
-    </div>   
+    </div>
     </i>
-  
+
     <a href="{{ route('index') }}" class="blek"><i class="bi bi-house"></i></a>
-    <i class="bi bi-arrow-up-right-circle"></i>
-    <i class="bi bi-person"></i>
+    <a href=""{{ route('search') }} class="blek"><i class="bi bi-search"></i></a>
+    <a href="{{ route('login') }}" class="blek"><i class="bi bi-person"></i></a>
 
 </div>

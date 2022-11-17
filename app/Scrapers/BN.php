@@ -15,7 +15,7 @@ class BN extends Scraper
     protected string $imageLinkAttribute = 'data-src';
     protected bool $saveImagesLocally = true;
     protected string $categorySelector = '.news-detail-txt > strong';
-    protected string $externalSource = '.news-detail-txt img';
+    protected string $externalSource = '.news-detail-txt > p img';
     protected array $categoryAssign = [
         'Fudbal' => 3,
         'Kosarka' => 3,

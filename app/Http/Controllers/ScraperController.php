@@ -18,7 +18,7 @@ class ScraperController extends Controller
 
     public function show(string $slug)
     {
-        $articles = Article::limit(5)->get();
+        $articles = Article::all()->random(5)->where('slug', '!==', $slug);
         $article = Article::where('slug', $slug)->first();
 
         if(!$article) {
@@ -41,6 +41,18 @@ class ScraperController extends Controller
         }
 
         return view('index', compact( 'sources', 'category'));
+    }
+
+    public function source(int $id)
+    {
+        $sources = Source::find($id);
+        $articles = Article::all();
+
+        if(!$sources) {
+            return redirect()->route('index');
+        }
+
+        return view('source', compact('sources', 'articles'));
     }
 
 
