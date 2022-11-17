@@ -1,10 +1,13 @@
-<div id="source">
+@extends('layout')
+@section('content')
 
-    <div class="d-flex p-2">
-    <ul class="">
-        @foreach (App\Models\Article::where('source_id', $source->id)->get() as $article)
-            @include('article')
-        @endforeach
-    </ul>
-</div>
-</div>
+
+    <div class="list-group">
+        <div class="col-md-6">
+                @foreach (App\Models\Article::where('source_id', $source->id)->get() as $article)
+                    @include('article')
+                @endforeach
+        </div>
+    </div>
+
+@endsection

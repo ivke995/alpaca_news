@@ -20,11 +20,10 @@
     @if(Auth::check())
         <form action="{{ route('logout') }}" method="post">
             @csrf
-            <button type="submit"><i class="bi bi-box-arrow-right"></i></button>
+{{--            <i class="bi bi-box-arrow-right"></i>--}}
+            <button style="color: " type="submit"><i class="bi bi-box-arrow-right"></i></button>
         </form>
-{{--        <a href="{{ route('logout') }}" class="blek"><i class="bi bi-box-arrow-right"></i></a>--}}
     @endif
-
 
 
 </div>

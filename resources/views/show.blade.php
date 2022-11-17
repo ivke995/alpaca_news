@@ -12,9 +12,18 @@
 </div>
 
 <div class="scrolling-wrapper1">
-    @foreach($articles as $smallArticle)
-        @include('smallArticle', ["article"=>$smallArticle] )
-    @endforeach
+    @if(str_contains(url()->previous(), 'source'))
+            @foreach(App\Models\Article::where('source_id', $id)->get() as $index => $smallArticle)
+
+                @include('smallArticle', ["article"=>$smallArticle] )
+        @endforeach
+    @else
+        @foreach($articles as $smallArticle)
+            @include('smallArticle', ["article"=>$smallArticle] )
+        @endforeach
+    @endif
+
+
 </div>
 
 @endsection
