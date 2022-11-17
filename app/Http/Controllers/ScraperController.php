@@ -12,8 +12,10 @@ class ScraperController extends Controller
     {
         $articles = Article::paginate(10);
         $sources = Source::all();
+//        $source_selector = Source::find($id);
 
-        return view('index', compact('sources', 'articles'));
+
+        return view('index', compact('sources',  'articles'));
     }
 
     public function show(string $slug)
@@ -45,14 +47,13 @@ class ScraperController extends Controller
 
     public function source(int $id)
     {
-        $sources = Source::find($id);
+        $source = Source::find($id);
         $articles = Article::all();
 
-        if(!$sources) {
+        if(!$source) {
             return redirect()->route('index');
         }
-
-        return view('source', compact('sources', 'articles'));
+        return view('source', compact('source', 'articles'));
     }
 
 

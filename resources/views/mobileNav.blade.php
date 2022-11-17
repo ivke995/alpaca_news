@@ -14,6 +14,17 @@
 
     <a href="{{ route('index') }}" class="blek"><i class="bi bi-house"></i></a>
     <a href=""{{ route('search') }} class="blek"><i class="bi bi-search"></i></a>
-    <a href="{{ route('login') }}" class="blek"><i class="bi bi-person"></i></a>
+    @if(Auth::guest())
+        <a href="{{ route('login') }}" class="blek"><i class="bi bi-person"></i></a>
+    @endif
+    @if(Auth::check())
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button type="submit"><i class="bi bi-box-arrow-right"></i></button>
+        </form>
+{{--        <a href="{{ route('logout') }}" class="blek"><i class="bi bi-box-arrow-right"></i></a>--}}
+    @endif
+
+
 
 </div>
