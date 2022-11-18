@@ -14,8 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property $firstParagraph
  * @property $restOfText
  */
-
-
 class Article extends Model
 {
     use HasFactory;
@@ -26,18 +24,16 @@ class Article extends Model
     {
         parent::boot();
 
-        self::creating(function(Article $article) {
+        self::creating(function (Article $article) {
             $article->link = self::processLink($article->link);
         });
 
         self::updating(function (Article $article) {
-           $article->text = (new AlphabetConverter())->cyrillicToLatin($article->text);
-           $article->title = (new AlphabetConverter())->cyrillicToLatin($article->title);
+            $article->text = (new AlphabetConverter())->cyrillicToLatin($article->text);
+            $article->title = (new AlphabetConverter())->cyrillicToLatin($article->title);
         });
 
     }
-
-//    public static function firstParagraph
 
     public static function processLink(string $link): string
     {
@@ -54,6 +50,13 @@ class Article extends Model
     public function source()
     {
         return $this->belongsTo(Source::class);
+    }
+
+    public function checkSlugExists()
+    {
+        $previous_url_arr = explode('/', url()->previous());
+        return end($previous_url_arr);
+
     }
 
     public function category()

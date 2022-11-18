@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Source;
+use http\Env\Request;
 
 class ScraperController extends Controller
 {
@@ -20,14 +21,11 @@ class ScraperController extends Controller
     {
         $articles = Article::all()->random(5)->where('slug', '!==', $slug);
         $article = Article::where('slug', $slug)->first();
+        $source_small_articles = Article::all()->random(5)->where('source_id', $article->source_id)->where('slug', '!==', $slug);
         $sources = Source::all();
-
-        $id = substr(url()->previous(), -1);
-
-
-//        $allArticles = Article::all();
-//        $source_articles = Article::where('source_id', $source->id);
-
+//        $previous_url_arr = explode('/', url()->previous());
+//        $lastElement = end($previous_url_arr);
+//        $lastElement = Article::checkSlugExists();
         if(!$article) {
             return redirect()->route('index');
         }
@@ -35,7 +33,7 @@ class ScraperController extends Controller
         $article->visits++;
         $article->save();
 
-        return view('show', compact('article', 'sources', 'articles', 'id'));
+        return view('show', compact('article', 'sources', 'articles', 'source_small_articles'));
     }
 
     public function category(int $id)
