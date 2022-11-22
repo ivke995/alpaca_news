@@ -11,10 +11,10 @@
         </div>
     </div>
 
-    <div class="col-md-7 mb-4">
+    {{-- <div class="col-md-7 mb-4">
         <h5 class="text-start"><strong><span class="badge bg-danger px-2 py-1 shadow-1-strong">Infomedia</span>Software developer</strong></h5>
         <p class="text-muted small text-start">
             {{ Str::limit($article->text, 180) }} <a href="{{ route('show', $article->id) }}" class="btn btn-sm btn-secondary" style="padding: 0.05rem 0.1rem; font-size: 0.75rem;">Više</a>
         </p>
-    </div>
+    </div> --}}
 </div>

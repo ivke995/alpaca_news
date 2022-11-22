@@ -284,8 +284,9 @@ nav a {
 }
 
 .btnSearch {
-    color: white;
-    border: white 1px solid;
+    color: #f7e7ce;
+    border: #f7e7ce 1px solid;
+    border-radius: 50%;
 }
 
 .btnSearch:hover {
@@ -310,11 +311,9 @@ nav a {
         margin-top: -6px;
     }
     .navbar-nav {
-        width: 100% !important;
         margin-top: 300px;
         text-align: center;
         text-transform: uppercase;
-        color: black;
         position: fixed;
         bottom: 60px;
     }
@@ -374,6 +373,19 @@ nav a {
     }
 }
 
+.listEl {
+    background-color: #04293a;
+    color: #f0ebce;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+}
+
+.litsEl:hover {
+    transform: scale(1.2);
+}
+
 .categoriesBtn {
     display: inline-block;
     padding-top: 3px;
@@ -382,6 +394,13 @@ nav a {
 .category ul li {
     display: flex;
     justify-content: space-around;
+    color: #f0ebce;
+}
+
+.nav-link {
+    color: #f0ebce;
+    display: flex;
+    justify-content: center;
 }
 
 #category {
@@ -407,6 +426,7 @@ nav a {
     transition: transform 500ms ease-in-out;
     z-index: 15;
     top: 0;
+    justify-content: center;
 }
 
 input[type="checkbox"]:checked ~ #category {
@@ -475,4 +495,23 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     box-sizing: border-box;
     transform: rotate(-135deg);
     margin-top: -9px;
+}
+
+.searchPos {
+    position: fixed;
+    top: 5px;
+    width: 98%;
+    display: none;
+    gap: 2px;
+}
+
+.searchPolje {
+    border-radius: 40px;
+    background-color: #f7e7ce;
+}
+
+.logedIn {
+    background-color: #04293a;
+    border: none;
+    color: #f7e7ce;
 }
