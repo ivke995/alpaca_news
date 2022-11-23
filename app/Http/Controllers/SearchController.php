@@ -13,6 +13,10 @@ class SearchController extends Controller
         $searchText = $request->query('query');
         $articles = Article::where('title', 'LIKE', '%'.$searchText.'%')->get();
 
+        if(!$searchText) {
+            return redirect()->route('index')->with('message', 'Please enter text you search for');
+        }
+
         return view('search', compact('articles'));
     }
 

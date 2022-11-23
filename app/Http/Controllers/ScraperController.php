@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Source;
-use http\Env\Request;
+//use http\Env\Request;
 
 class ScraperController extends Controller
 {
@@ -25,6 +25,7 @@ class ScraperController extends Controller
         $sources = Source::all();
 //        $previous_url_arr = explode('/', url()->previous());
 //        $lastElement = end($previous_url_arr);
+//        $lastElement = (new Article())->checkSlugExists();
 //        $lastElement = Article::checkSlugExists();
         if(!$article) {
             return redirect()->route('index');
