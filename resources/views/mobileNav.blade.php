@@ -11,8 +11,8 @@
     </i>
 
     <a href="{{ route('index') }}" class="blek"><i class="bi bi-house"></i></a>
-    <form class="searchPos" role="search" method="get" action="{{ route('search') }}">
-        <input class="form-control me-2 searchPolje" name="query" type="search" placeholder="Pretraga" aria-label="Search">
+    <form class="searchPos" id="panel" role="search" method="get" action="{{ route('search') }}">
+        <input class="form-control me-2 searchPolje" id="search"name="query" type="search" placeholder="Pretraga" aria-label="Search">
         <button class="btn btn-outline-success btnSearch" type="submit"><i class="bi bi-search"></i></button>
     </form>
     <i class="bi bi-search searchBtn"></i>

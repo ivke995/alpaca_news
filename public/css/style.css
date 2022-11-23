@@ -33,6 +33,12 @@ body {
     width: auto;
     border: solid 1px #064663;
 }
+
+.cardReg {
+    background-color: #041c32;
+    width: auto;
+    border: solid 1px #064663;
+}
 .text-muted {
     color: #f0ebce !important;
 }
@@ -162,6 +168,10 @@ body {
     color: #f7e7ce;
 }
 
+.borderRadius {
+    border-radius: 20px;
+}
+
 .smallArticle::after {
     content: "";
     position: absolute;
@@ -284,8 +294,8 @@ nav a {
 }
 
 .btnSearch {
-    color: #f7e7ce;
-    border: #f7e7ce 1px solid;
+    color: #f0ebce;
+    border: #f0ebce 1px solid;
     border-radius: 50%;
 }
 
@@ -334,10 +344,19 @@ nav a {
     }
 
     .d-flex {
-        position: absolute;
+        /* position: absolute; */
         top: 0px;
         left: 50%;
-        transform: translate(-50%, 10px);
+        /* transform: translate(-50%, 10px); */
+    }
+    .reg {
+        position: static !important;
+        transform: translate(0, 0) !important;
+    }
+
+    .regTop {
+        margin-top: -230px;
+        height: 93% !important;
     }
     .nav-link {
         padding-bottom: 13px;
@@ -507,7 +526,7 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .searchPolje {
     border-radius: 40px;
-    background-color: #f7e7ce;
+    background-color: #f0ebce;
 }
 
 .logedIn {

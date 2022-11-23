@@ -20,9 +20,6 @@ sourceNews.forEach((el) => {
     }
 });
 
-const row = document.querySelector(".row");
-console.log(row.childNodes.length);
-
 searchBtn.addEventListener("click", function () {
     if (SearhField.style.display === "none") {
         SearhField.style.display = "flex";
