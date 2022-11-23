@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Source;
+use Illuminate\Support\Facades\DB;
+
 //use http\Env\Request;
 
 class ScraperController extends Controller
@@ -19,14 +21,11 @@ class ScraperController extends Controller
 
     public function show(string $slug)
     {
-        $articles = Article::all()->random(5)->where('slug', '!==', $slug);
+        $articles = Article::all()->where('slug', '!==', $slug)->random(5);
         $article = Article::where('slug', $slug)->first();
-        $source_small_articles = Article::all()->random(5)->where('source_id', $article->source_id)->where('slug', '!==', $slug);
+        $source_small_articles = Article::all()->where('source_id', $article->source_id)->where('slug', '!==', $slug)->random(5);
         $sources = Source::all();
-//        $previous_url_arr = explode('/', url()->previous());
-//        $lastElement = end($previous_url_arr);
-//        $lastElement = (new Article())->checkSlugExists();
-//        $lastElement = Article::checkSlugExists();
+
         if(!$article) {
             return redirect()->route('index');
         }
