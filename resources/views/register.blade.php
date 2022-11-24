@@ -53,7 +53,7 @@
                                         <button type="submit" class="btn btn-primary btn-lg">Register</button>
                                     </div>
                                     <div class="text-center">
-                                        <p>Have an account? <a href="{{ route('login') }}">Login</a></p>
+                                        <p>Have an account? <button type="button" class="btn btn-outline-success"><a href="{{ route('login') }}" style="text-decoration: none; color: white">Login</a></button></p>
                                     </div>
 
                                 </form>
