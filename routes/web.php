@@ -29,7 +29,11 @@ Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])
 
 Route::get('/source/{id}', [\App\Http\Controllers\ScraperController::class, 'source'])->name('source');
 
-//Route::get('')
+// Route for mailing
+Route::get('/email', function () {
+    \Illuminate\Support\Facades\Mail::to('ivanpraksainfo@gmail.com')->send(new \App\Mail\WelcomeMail());
+    return new \App\Mail\WelcomeMail();
+});
 
 //Route::controller(\App\Http\Controllers\AuthController::class)->group(function() {
 //    Route::get('login', 'index')->name('login');
