@@ -526,7 +526,7 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .searchPolje {
     border-radius: 40px;
-    background-color: #f0ebce;
+    /*background-color: #f0ebce;*/
 }
 
 .logedIn {

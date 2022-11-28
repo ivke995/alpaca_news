@@ -26,11 +26,11 @@
                 <div class="form-check text-center">
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Sign in</button>
 
                     <!-- Register buttons -->
                     <div class="text-center">
-                        <p>Not a member <button type="button" class="btn btn-outline-success"><a href="{{ route('register') }}" style="text-decoration: none; color: white">Register</a></button>
+                        <p>Not a member <button type="button" class="btn btn-outline-success"><a href="{{ route('register') }}" style="text-decoration: none;  color: white">Register</a></button>
                             </p>
                     </div>
 
