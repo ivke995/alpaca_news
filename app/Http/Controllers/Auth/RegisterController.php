@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MailController;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -31,7 +32,8 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         $this->create($request->all());
-        return redirect('login');
+        (new MailController)->index($request->email);
+        return redirect('login')->with('success', 'You have registered successfully,check your email!');
     }
 
     protected function validator(array $data)

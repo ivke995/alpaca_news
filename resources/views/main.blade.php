@@ -20,6 +20,26 @@
 </div>
 <div class="container mt-5">
     @yield('main_content')
+    <div>
+        @if(session()->has('success'))
+            <div class="alert alert-success" id="alert">
+                {{ session()->get('success') }}
+
+            </div>
+
+        @endif
+    </div>
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        setTimeout(function ()
+        {
+            $("div.alert").remove();
+        }, 3000)
+    });
+</script>
 </body>
 </html>

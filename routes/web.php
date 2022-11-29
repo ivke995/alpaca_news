@@ -31,7 +31,7 @@ Route::get('/source/{id}', [\App\Http\Controllers\ScraperController::class, 'sou
 
 
 // Route for mailing
-Route::get('/send', [\App\Http\Controllers\MailController::class, 'index']);
+Route::get('/send', [\App\Http\Controllers\MailController::class, 'index'])->name('send');
 
 //Route::get('/email', function () {
 //    \Illuminate\Support\Facades\Mail::to('ivanpraksainfo@gmail.com')->send(new \App\Mail\WelcomeMail());
