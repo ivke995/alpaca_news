@@ -17,13 +17,7 @@ class ScraperController extends Controller
     {
         $articles = Article::paginate(10);
         $sources = Source::all();
-//        (new ProxyScrapper())->scrapeProxy();
-//        dd(Proxy::where('proxy', $this->proxy)->first());
-//        echo(Proxy::where('proxy', $proxy->proxy)->random());
-        $proxy = Proxy::inRandomOrder()->first();
-        dd($proxy->proxy);
-
-
+        
         return view('index', compact('sources',  'articles'));
     }
 
