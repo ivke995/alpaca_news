@@ -15,7 +15,7 @@ class CreateProxiesTable extends Migration
     {
         Schema::create('proxies', function (Blueprint $table) {
             $table->id();
-            $table->string('proxy');
+            $table->string('proxy')->unique();
             $table->timestamps();
         });
     }

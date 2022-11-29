@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Proxy;
 use App\Models\Source;
 use App\Scrapers\ProxyScrapper;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +18,11 @@ class ScraperController extends Controller
         $articles = Article::paginate(10);
         $sources = Source::all();
 //        (new ProxyScrapper())->scrapeProxy();
+//        dd(Proxy::where('proxy', $this->proxy)->first());
+//        echo(Proxy::where('proxy', $proxy->proxy)->random());
+        $proxy = Proxy::inRandomOrder()->first();
+        dd($proxy->proxy);
+
 
         return view('index', compact('sources',  'articles'));
     }

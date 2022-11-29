@@ -29,10 +29,12 @@ class ProxyScrapper
                 $i++;
             });
 
-           Proxy::create(['proxy' => substr($proxy_and_port, 0,-1 )]);
+           $new_proxy = substr($proxy_and_port, 0,-1 );
 
+           if((new Proxy())->where('proxy', $new_proxy)->exists()) { return;}
 
-//            var_dump(substr($proxy_and_port, 0,-1 ));
+            Proxy::create(['proxy' => $new_proxy]);
+
         });
 //        dd($pero);
     }

@@ -6,6 +6,7 @@ use App\Helpers\FileStorage;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\External;
+use App\Models\Proxy;
 use App\Models\Source;
 use Goutte\Client;
 use Illuminate\Support\Str;
@@ -42,8 +43,9 @@ class Scraper
     }
 
     public function scrape(Source $source) {
-        $page = $this->client->request('GET', $this->url);
+        $proxy = Proxy::inRandomOrder()->first();
 
+        $page = $this->client->request('GET', $this->url, ['proxy' => $proxy]);
 
         foreach ($this->boxSelectors as $i => $boxSelector) {
             $page->filter($boxSelector)->each(function ($node) use ($source, $i) {
