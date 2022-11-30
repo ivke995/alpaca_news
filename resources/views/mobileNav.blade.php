@@ -21,7 +21,10 @@
     @endif
     @if(Auth::check())
         <form action="{{ route('logout') }}" method="post">
-            @csrf
+{{--                <form action="{{ route('profile') }}" method="get">--}}
+
+
+        @csrf
             {{--            <i class="bi bi-box-arrow-right"></i>--}}
             <button type="submit" class="logedIn"><i class="bi bi-box-arrow-right"></i></button>
         </form>

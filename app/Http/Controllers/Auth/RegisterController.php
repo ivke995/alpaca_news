@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MailController;
+use App\Models\Country;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -25,7 +26,9 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('register');
+        $countries = Country::all();
+
+        return view('register', compact('countries'));
     }
 
     public function register(Request $request)

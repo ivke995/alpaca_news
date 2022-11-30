@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         (new SourceSeeder())->run();
         (new CategorySeeder())->run();
+        (new CountriesSeeder())->run();
     }
 }

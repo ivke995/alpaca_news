@@ -2,13 +2,16 @@
 
 namespace App\Scrapers;
 
+use App\Exceptions\ScrapeException;
 use App\Helpers\FileStorage;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\External;
 use App\Models\Proxy;
 use App\Models\Source;
+use Exception;
 use Goutte\Client;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpClient\HttpClient;
 use function Sodium\compare;
@@ -33,6 +36,7 @@ class Scraper
     protected bool $hasUrlCategory = false;
     protected bool $hasExternalSource = false;
     protected string $externalSource;
+    protected bool $hasExternalProxy = false;
 
 
     private Client $client;
@@ -42,10 +46,22 @@ class Scraper
         $this->client = new Client(HttpClient::create(['verify_peer' => false, 'verify_host' => false]));
     }
 
-    public function scrape(Source $source) {
-        $proxy = Proxy::inRandomOrder()->first();
+    public function scrape(Source $source)
+    {
+        if (!$this->hasExternalProxy) {
+            $page = $this->client->request('GET', $this->url);
+        } else {
+            $proxies = DB::table('proxies')->pluck('proxy');
+            foreach ($proxies as $proxy) {
+                try {
+                    $page = $this->client->request('GET', $this->url, ['proxy' => $proxy]);
+                    break;
+                } catch (Exception $e) {
+                    continue;
+                }
+            }
+        }
 
-        $page = $this->client->request('GET', $this->url, ['proxy' => $proxy]);
 
         foreach ($this->boxSelectors as $i => $boxSelector) {
             $page->filter($boxSelector)->each(function ($node) use ($source, $i) {
@@ -58,23 +74,27 @@ class Scraper
                     null;
 
                 $link = $node->filter($this->urlSelectors[$i])->count() ?
-                    $node->filter($this->urlSelectors[$i])->getNode(0)->getAttribute('href'):
+                    $node->filter($this->urlSelectors[$i])->getNode(0)->getAttribute('href') :
                     null;
 
-                if (!$title || !$image_url || !$link) { return; }
-                if ((new Article())->existsWithLink($link)) { return; }
+                if (!$title || !$image_url || !$link) {
+                    return;
+                }
+                if ((new Article())->existsWithLink($link)) {
+                    return;
+                }
 
                 $source_id = $source->id;
 
-                if($this->saveImagesLocally) {
+                if ($this->saveImagesLocally) {
                     $image_url = (new FileStorage())->fileStorage($image_url);
                 }
 
-                if($this->hasLocalUrls) {
+                if ($this->hasLocalUrls) {
                     $link = $this->url . $link;
                 }
 
-                if($this->hasLocalImageUrls) {
+                if ($this->hasLocalImageUrls) {
                     $image_url = $this->url . $image_url;
                 }
 
@@ -98,13 +118,13 @@ class Scraper
 
         $page->filter($this->externalSource)->each(function ($node) use ($article) {
             $external_source = $node->getNode(0)->getAttribute('src');
-            if(!$external_source) {
+            if (!$external_source) {
                 return;
             }
 
             $new_external_source = (new External())->create([
                 'external_source' => $external_source,
-                'article_id' => $article -> id
+                'article_id' => $article->id
             ]);
 
             $new_external_source->save();
@@ -118,18 +138,18 @@ class Scraper
 
         $article->category_id = $this->categoryAssign[$category] ?? 10;
 
-        $page->filter($this->contentSelector)->each(function ($node) use (&$texts){
-            $texts .=$node->text() . "\n";
+        $page->filter($this->contentSelector)->each(function ($node) use (&$texts) {
+            $texts .= $node->text() . "\n";
 
         });
 
-        if($this->hasSmallImages) {
+        if ($this->hasSmallImages) {
             $image_url = $page->filter($this->bigImageSelector)->count() ?
                 $page->filter($this->bigImageSelector)->getNode(0)->getAttribute($this->imageLinkAttribute) :
                 null;
 
-            if($image_url) {
-                if($this->saveImagesLocally) {
+            if ($image_url) {
+                if ($this->saveImagesLocally) {
                     $image_url = (new FileStorage())->fileStorage($image_url);
                 }
                 $article->image_url = $image_url;

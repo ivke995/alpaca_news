@@ -17,8 +17,8 @@ class ScraperController extends Controller
     {
         $articles = Article::paginate(10);
         $sources = Source::all();
-        
-        return view('index', compact('sources',  'articles'));
+
+        return view('index', compact('sources', 'articles'));
     }
 
     public function show(string $slug)
@@ -28,7 +28,7 @@ class ScraperController extends Controller
         $source_small_articles = Article::all()->where('source_id', $article->source_id)->where('slug', '!==', $slug)->random(5);
         $sources = Source::all();
 
-        if(!$article) {
+        if (!$article) {
             return redirect()->route('index');
         }
 
@@ -43,11 +43,11 @@ class ScraperController extends Controller
         $category = Category::find($id);
         $sources = Source::all();
 
-        if(!$category) {
+        if (!$category) {
             return redirect()->route('index');
         }
 
-        return view('index', compact( 'sources', 'category'));
+        return view('index', compact('sources', 'category'));
     }
 
     public function source(int $id)
@@ -55,7 +55,7 @@ class ScraperController extends Controller
         $source = Source::find($id);
         $articles = Article::all();
 
-        if(!$source) {
+        if (!$source) {
             return redirect()->route('index');
         }
         return view('source', compact('source', 'articles'));
