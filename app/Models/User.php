@@ -21,6 +21,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'phone',
+        'mobile',
+        'city',
+        'country_id',
+        'is_female',
         'email',
         'password',
     ];
@@ -43,6 +48,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 
 
 

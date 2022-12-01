@@ -25,39 +25,49 @@
                                         </div>
                                     </div>
 
-{{--                                    <div class="d-flex flex-row align-items-center mb-4">--}}
-{{--                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>--}}
-{{--                                        <div class="form-outline flex-fill mb-0">--}}
-{{--                                            <input name="phone" type="number" id="form3Example3c" class="form-control" />--}}
-{{--                                            <label class="form-label" for="form3Example3c">Your Phone</label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input name="phone" type="number" id="form3Example3c" class="form-control" />
+                                            <label class="form-label" for="form3Example3c">Your Phone</label>
+                                        </div>
+                                    </div>
 
-{{--                                    <div class="d-flex flex-row align-items-center mb-4">--}}
-{{--                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>--}}
-{{--                                        <div class="form-outline flex-fill mb-0">--}}
-{{--                                            <input name="mobile" type="number" id="form3Example3c" class="form-control" />--}}
-{{--                                            <label class="form-label" for="form3Example3c">Your Mobile Phone</label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input name="mobile_phone" type="number" id="form3Example3c" class="form-control" />
+                                            <label class="form-label" for="form3Example3c">Your Mobile Phone</label>
+                                        </div>
+                                    </div>
 
-{{--                                    <div class="d-flex flex-row align-items-center mb-4">--}}
-{{--                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>--}}
-{{--                                        <div class="form-outline flex-fill mb-0">--}}
-{{--                                            <input name="city" type="text" id="form3Example3c" class="form-control" />--}}
-{{--                                            <label class="form-label" for="form3Example3c">Your City</label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input name="city" type="text" id="form3Example3c" class="form-control" />
+                                            <label class="form-label" for="form3Example3c">Your City</label>
+                                        </div>
+                                    </div>
 
-{{--                                    <div id="dropdown">--}}
-{{--                                        <label for="country">Your Country</label><br>--}}
-{{--                                        <select class="form-select" name="country"  aria-label="Default select example">--}}
-{{--                                            <option value="">Select Country</option>--}}
-{{--                                            @foreach ($countries as $country)--}}
-{{--                                                <option value="{{$country->id}}">{{$country->name}} / {{ $country->code }}</option>--}}
-{{--                                            @endforeach--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
+                                    <div id="dropdown">
+                                        <label for="country">Your Gender</label><br>
+                                        <select class="form-select" name="is_female"  aria-label="Default select example">
+                                            <option value="">Select your gender</option>
+                                                <option value="0">Male</option>
+                                                <option value="1">Female</option>
+                                        </select>
+                                    </div>
+
+                                    <div id="dropdown">
+                                        <label for="country">Your Country</label><br>
+                                        <select class="form-select" name="country"  aria-label="Default select example">
+                                            <option value="">Select Country</option>
+                                            @foreach ($countries as $country)
+                                               <h1>{{ $country }}</h1>
+                                                <option value="{{$country->id}}">{{$country->name}} / {{ $country->code }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>

@@ -35,10 +35,9 @@ Route::get('/send', [\App\Http\Controllers\MailController::class, 'index'])->nam
 
 Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('profile');
 
-//Route::get('/email', function () {
-//    \Illuminate\Support\Facades\Mail::to('ivanpraksainfo@gmail.com')->send(new \App\Mail\WelcomeMail());
-//    return new \App\Mail\WelcomeMail();
-//});
+Route::get('/profile-edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('profile-edit');
+
+Route::post('/profile-update', [\App\Http\Controllers\UserController::class, 'update'])->name('profile-update');
 
 //Route::controller(\App\Http\Controllers\AuthController::class)->group(function() {
 //    Route::get('login', 'index')->name('login');

@@ -20,13 +20,11 @@
         <a href="{{ route('login') }}" class="blek"><i class="bi bi-person"></i></a>
     @endif
     @if(Auth::check())
-        <form action="{{ route('logout') }}" method="post">
-{{--                <form action="{{ route('profile') }}" method="get">--}}
-
-
+{{--        <form action="{{ route('logout') }}" method="post">--}}
+                <form action="{{ route('profile') }}" method="get">
         @csrf
             {{--            <i class="bi bi-box-arrow-right"></i>--}}
-            <button type="submit" class="logedIn"><i class="bi bi-box-arrow-right"></i></button>
+            <button type="submit" class="logedIn"><i class="bi bi-person-circle"></i></button>
         </form>
     @endif
 
