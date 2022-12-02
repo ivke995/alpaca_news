@@ -8,6 +8,7 @@ use App\Models\Proxy;
 use App\Models\Source;
 use App\Scrapers\ProxyScrapper;
 use Illuminate\Support\Facades\DB;
+use Jorenvh\Share\Share;
 
 //use http\Env\Request;
 
@@ -27,6 +28,7 @@ class ScraperController extends Controller
         $article = Article::where('slug', $slug)->first();
         $source_small_articles = Article::all()->where('source_id', $article->source_id)->where('slug', '!==', $slug)->random(5);
         $sources = Source::all();
+        $page = url()->current();
 
         if (!$article) {
             return redirect()->route('index');
@@ -35,7 +37,7 @@ class ScraperController extends Controller
         $article->visits++;
         $article->save();
 
-        return view('show', compact('article', 'sources', 'articles', 'source_small_articles'));
+        return view('show', compact('article', 'sources', 'articles', 'source_small_articles', 'page'));
     }
 
     public function category(int $id)

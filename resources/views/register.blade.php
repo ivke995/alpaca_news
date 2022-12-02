@@ -50,7 +50,7 @@
                                     </div>
 
                                     <div id="dropdown">
-                                        <label for="country">Your Gender</label><br>
+                                        <label for="is_female">Your Gender</label><br>
                                         <select class="form-select" name="is_female"  aria-label="Default select example">
                                             <option value="">Select your gender</option>
                                                 <option value="0">Male</option>

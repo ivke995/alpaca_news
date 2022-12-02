@@ -2,6 +2,29 @@
 @section('content')
 
     <img src="{{ $article->image_url }}" class="img-fluid"/>
+        <h4>{!! (new \Jorenvh\Share\Share())->page($page, $article->title)->twitter()->facebook()->linkedin()->whatsapp() !!}</h4>
+{{--    <div class="social_icons">--}}
+{{--        <div class="social_icon">--}}
+{{--            <a id="shareWithFb"><i class="fab fa-facebook icons"></i></a>--}}
+{{--            <a id="shareWithTwitter"><i class="fab fa-twitter icons"></i></a>--}}
+{{--            <a id="shareWithWhatsapp"><i class="fab fa-whatsapp icons"></i></a>--}}
+{{--            <a id="shareWithMail"><i class="fas fa-envelope icons"></i></a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+    <style>
+
+        div#social-links ul li {
+            display: inline-block;
+        }
+        div#social-links ul li a {
+            border: 1px solid #ccc;
+            margin: 1px;
+            font-size: 25px;
+            color: #222;
+            background-color: #ccc;
+        }
+    </style>
     <div class="newsContent">
         <h2>{{ $article->title }}</h2>
         <div class="newsInfo">
@@ -31,6 +54,32 @@
 
         {{--        App\Models\Article::where('source_id', $id)->get()--}}
     </div>
+{{--    <script>--}}
+{{--        let copiedLink = '';--}}
+{{--        $(document).ready(function() {--}}
+{{--            copiedLink = $('#share_url').val();--}}
+{{--            $('#shareWithTwitter').click(function () {--}}
+{{--                window.open("https://twitter.com/intent/tweet?url=" + copiedLink);--}}
+{{--            });--}}
+
+{{--            $('#shareWithFb').click(function () {--}}
+{{--                window.open("https://www.facebook.com/sharer/sharer.php?u=" + copiedLink, 'facebook-share-dialog', "width=626, height=436");--}}
+{{--            });--}}
+{{--            $('#shareWithMail').click(function () {--}}
+{{--                var formattedBody = "This is cause link: " + (copiedLink);--}}
+{{--                var mailToLink = "mailto:?subject= " + user + " wants you to donate to this noble cause&body=" + encodeURIComponent(formattedBody);--}}
+{{--                window.location.href = mailToLink;--}}
+{{--            });--}}
+{{--            $('#shareWithWhatsapp').click(function () {--}}
+{{--                var win = window.open('https://api.whatsapp.com/send?text=' + copiedLink, '_blank');--}}
+{{--                win.focus();--}}
+{{--            });--}}
+{{--            });--}}
+
+{{--    </script>--}}
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 @endsection
 

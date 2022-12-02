@@ -37,7 +37,7 @@ Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->
 
 Route::get('/profile-edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('profile-edit');
 
-Route::post('/profile-update', [\App\Http\Controllers\UserController::class, 'update'])->name('profile-update');
+Route::put('/profile-update', [\App\Http\Controllers\UserController::class, 'update'])->name('profile-update');
 
 //Route::controller(\App\Http\Controllers\AuthController::class)->group(function() {
 //    Route::get('login', 'index')->name('login');
