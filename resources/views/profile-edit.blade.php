@@ -1,15 +1,16 @@
+@extends('layout')
 @extends('main')
 @section('main_content')
-    <section style="background-color: #eee;">
-        <div class="container py-5">
+    <section style="background-color: #041c32">
+        <div class="container py-5" style="margin-top:0px !important;">
             <div class="row">
                 <div class="col">
-                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    {{-- <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4 ">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item active" aria-current="page">Update {{ $user->name }}'s Profile
                             </li>
                         </ol>
-                    </nav>
+                    </nav> --}}
                 </div>
             </div>
 
@@ -117,7 +118,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" class="btn btn-primary btn-lg">Update</button>
+                                        <button type="submit" class="btn btn-primary btn-lg updateBtn">Update</button>
                                     </div>
                                 </div>
                             </div>

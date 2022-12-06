@@ -3,7 +3,7 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row forLastChild">
         @foreach($sources as $source)
             <div class="col-12 col-md-6 my-4 margin0">
                 <div class="card text-center mt-4 ">

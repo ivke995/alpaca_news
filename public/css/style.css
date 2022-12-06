@@ -17,6 +17,11 @@ body {
 
 .card-body {
     margin: 0 !important;
+    height: auto;
+}
+
+.edit {
+    background-color: #04293a;
 }
 
 .card-header {
@@ -27,9 +32,18 @@ body {
     height: 117px;
 }
 
+.btnProfil {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.logedIn {
+    background-color: #041c32;
+}
+
 .card {
     background-color: #041c32;
-    height: 280px;
+    height: auto;
     width: auto;
     border: solid 1px #064663;
 }
@@ -60,11 +74,11 @@ body {
 
 /*#dropdown{*/
 /*    position: absolute;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*text-align: center;*/
+/*margin-left: auto;*/
+/*margin-right: auto;*/
+/*left: 0;*/
+/*right: 0;*/
+/*text-align: center;*/
 /*}*/
 .mobileNav {
     width: 100%;
@@ -89,6 +103,7 @@ body {
 .visit {
     display: flex;
     gap: 5px;
+    position: relative;
 }
 
 ::-webkit-scrollbar {
@@ -285,7 +300,21 @@ nav a {
 }
 
 .btn {
-    background-color: #064663;
+    background-color: #04293a;
+    color: #f0ebce;
+}
+
+.updateBtn {
+    margin-top: 25px;
+    margin-bottom: -10px;
+}
+
+/* .margin0:nth-child(1) {
+    margin-bottom: 5rem !important;
+} */
+
+.forLastChild:last-child {
+    margin-bottom: 5rem !important;
 }
 
 .btn-sm {
@@ -296,6 +325,18 @@ nav a {
 nav a {
     margin: 5px;
     text-transform: uppercase;
+}
+
+a:visited {
+    color: none;
+}
+
+a:active,
+a:link,
+i:active,
+i:link {
+    color: #ecb365;
+    border: none;
 }
 
 .forHorScroll1 {
@@ -319,8 +360,9 @@ nav a {
     }
     .container {
         width: 80% !important;
-        margin-bottom: 90px;
+        /* margin-bottom: 90px; */
     }
+
     .navbar-brand {
         margin-top: 0;
         font-size: 1rem;
@@ -487,6 +529,15 @@ input[type="checkbox"] {
     width: 100%;
     background-color: #f0ebce;
 }
+.social_icon {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    margin-bottom: 36px;
+    top: 0px;
+    right: 74px;
+}
+
 .horizontal {
     transition: all 0.3s;
     box-sizing: border-box;
@@ -539,7 +590,7 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 
 .logedIn {
-    background-color: #04293a;
     border: none;
     color: #f7e7ce;
+    background-color: #04293a !important;
 }

@@ -1,13 +1,14 @@
+@extends ('layout')
 @extends('main')
-<section style="background-color: #eee;">
-    <div class="container py-5">
+<section style="background-color: #041c32;">
+    <div class="container py-5" style="margin-top:0px !important">
         <div class="row">
             <div class="col">
-                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                {{-- <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item active" aria-current="page">{{ $user->name }}'s Profile</li>
                     </ol>
-                </nav>
+                </nav> --}}
             </div>
         </div>
 
@@ -97,14 +98,14 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{ route('profile-edit') }}" method="get">
-                    <button type="submit" class="logedIn"><i class="btn btn-primary btn-lg btn-block">Edit Profile</i>
+                <form action="{{ route('profile-edit') }}" method="get" class="centar">
+                    <button type="submit" class="logedIn"><i class="btn btn-primary btn-lg btn-block btnProfil">Edit Profile</i>
                     </button>
                 </form>
                 @if(Auth::check())
-                    <form action="{{ route('logout') }}" method="post">
+                    <form action="{{ route('logout') }}" method="post" class="centar">
                         @csrf
-                        <button type="submit" class="logedIn"><i class="btn btn-primary btn-lg btn-block">Logout</i>
+                        <button type="submit" class="logedIn"><i class="btn btn-primary btn-lg btn-block btnProfil">Logout</i>
                         </button>
                     </form>
                 @endif

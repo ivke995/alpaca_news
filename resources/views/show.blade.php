@@ -6,16 +6,6 @@
     <img src="{{ $article->image_url }}" class="img-fluid"/>
 {{--        <h4>{!! (new \Jorenvh\Share\Share())->page($page, $article->title)->twitter()->facebook()->linkedin()->whatsapp() !!}</h4>--}}
 
-    <div class="social_icons">
-        <div class="social_icon">
-            <a id="shareWithFb"><i class="fab fa-facebook icons"></i></a>
-            <a id="shareWithTwitter"><i class="fab fa-twitter icons"></i></a>
-            <a id="shareWithWhatsapp"><i class="fab fa-whatsapp icons"></i></a>
-            <a id="shareWithMail"><i class="fas fa-envelope icons"></i></a>
-            <a id="shareWithICQ"><i class="fa-solid fa-comment"></i></a>
-
-        </div>
-    </div>
 
     <style>
 
@@ -34,7 +24,18 @@
         <h2>{{ $article->title }}</h2>
         <div class="newsInfo">
             <div>{{ $article->source->name }}</div>
-            <div class="visit"><p>{{ $article->visits }}</p><i class="bi bi-eye"></i></div>
+            <div class="visit"><p>{{ $article->visits }}</p><i class="bi bi-eye"></i>
+                <div class="social_icons">
+                    <div class="social_icon">
+                        <a id="shareWithFb"><i class="fab fa-facebook icons"></i></a>
+                        <a id="shareWithTwitter"><i class="fab fa-twitter icons"></i></a>
+                        <a id="shareWithWhatsapp"><i class="fab fa-whatsapp icons"></i></a>
+                        <a id="shareWithMail"><i class="fas fa-envelope icons"></i></a>
+                        <a id="shareWithICQ"><i class="fa-solid fa-comment"></i></a>
+            
+                    </div>
+                </div>
+            </div>
         </div>
         <div><b>{{ $article->firstParagraph }}</b></div>
         <div class="newsText">{{ $article->restOfText }}</div>

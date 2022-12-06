@@ -18,7 +18,7 @@
 
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5" style="margin-top:0px !important">
     @yield('main_content')
     <div>
         @if(session()->has('success'))
