@@ -1,16 +1,21 @@
 @extends('layout')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
 
     <img src="{{ $article->image_url }}" class="img-fluid"/>
-        <h4>{!! (new \Jorenvh\Share\Share())->page($page, $article->title)->twitter()->facebook()->linkedin()->whatsapp() !!}</h4>
-{{--    <div class="social_icons">--}}
-{{--        <div class="social_icon">--}}
-{{--            <a id="shareWithFb"><i class="fab fa-facebook icons"></i></a>--}}
-{{--            <a id="shareWithTwitter"><i class="fab fa-twitter icons"></i></a>--}}
-{{--            <a id="shareWithWhatsapp"><i class="fab fa-whatsapp icons"></i></a>--}}
-{{--            <a id="shareWithMail"><i class="fas fa-envelope icons"></i></a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+{{--        <h4>{!! (new \Jorenvh\Share\Share())->page($page, $article->title)->twitter()->facebook()->linkedin()->whatsapp() !!}</h4>--}}
+
+    <div class="social_icons">
+        <div class="social_icon">
+            <a id="shareWithFb"><i class="fab fa-facebook icons"></i></a>
+            <a id="shareWithTwitter"><i class="fab fa-twitter icons"></i></a>
+            <a id="shareWithWhatsapp"><i class="fab fa-whatsapp icons"></i></a>
+            <a id="shareWithMail"><i class="fas fa-envelope icons"></i></a>
+            <a id="shareWithICQ"><i class="fa-solid fa-comment"></i></a>
+
+        </div>
+    </div>
 
     <style>
 
@@ -54,32 +59,38 @@
 
         {{--        App\Models\Article::where('source_id', $id)->get()--}}
     </div>
-{{--    <script>--}}
-{{--        let copiedLink = '';--}}
-{{--        $(document).ready(function() {--}}
-{{--            copiedLink = $('#share_url').val();--}}
-{{--            $('#shareWithTwitter').click(function () {--}}
-{{--                window.open("https://twitter.com/intent/tweet?url=" + copiedLink);--}}
-{{--            });--}}
-
-{{--            $('#shareWithFb').click(function () {--}}
-{{--                window.open("https://www.facebook.com/sharer/sharer.php?u=" + copiedLink, 'facebook-share-dialog', "width=626, height=436");--}}
-{{--            });--}}
-{{--            $('#shareWithMail').click(function () {--}}
-{{--                var formattedBody = "This is cause link: " + (copiedLink);--}}
-{{--                var mailToLink = "mailto:?subject= " + user + " wants you to donate to this noble cause&body=" + encodeURIComponent(formattedBody);--}}
-{{--                window.location.href = mailToLink;--}}
-{{--            });--}}
-{{--            $('#shareWithWhatsapp').click(function () {--}}
-{{--                var win = window.open('https://api.whatsapp.com/send?text=' + copiedLink, '_blank');--}}
-{{--                win.focus();--}}
-{{--            });--}}
-{{--            });--}}
-
-{{--    </script>--}}
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
 @endsection
+
+@push('scripts')
+    <script>
+        let copiedLink = window.location.href;
+        $(document).ready(function() {
+            $('#shareWithTwitter').click(function () {
+                window.open("https://twitter.com/intent/tweet?url=" + copiedLink);
+            });
+
+            $('#shareWithFb').click(function () {
+                window.open("https://www.facebook.com/sharer/sharer.php?u=" + copiedLink, 'facebook-share-dialog', "width=626, height=436");
+            });
+            $('#shareWithMail').click(function () {
+                let formattedBody = "This is cause link: " + (copiedLink);
+                let mailToLink = "mailto:?subject= " + user + " wants you to donate to this noble cause&body=" + encodeURIComponent(formattedBody);
+                window.location.href = mailToLink;
+            });
+            $('#shareWithWhatsapp').click(function () {
+                let win = window.open('https://api.whatsapp.com/send?text=' + copiedLink, '_blank');
+                win.focus();
+            });
+            $('#shareWithICQ').click(function () {
+                let win = window.open('https://chatapi.viber.com/pa/send_message', '_blank');
+                win.focus();
+            });
+            });
+
+    </script>
+    @endpush
+
+
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">--}}
+
 
