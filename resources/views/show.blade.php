@@ -31,8 +31,8 @@
                         <a id="shareWithTwitter"><i class="fab fa-twitter icons"></i></a>
                         <a id="shareWithWhatsapp"><i class="fab fa-whatsapp icons"></i></a>
                         <a id="shareWithMail"><i class="fas fa-envelope icons"></i></a>
-                        <a id="shareWithICQ"><i class="fa-solid fa-comment"></i></a>
-            
+                        <a id="shareWithViber"><i class="fab fa-viber"></i></a>
+
                     </div>
                 </div>
             </div>
@@ -65,6 +65,7 @@
 @push('scripts')
     <script>
         let copiedLink = window.location.href;
+        let user = 'ivanpraksainfo@gmail.com';
         $(document).ready(function() {
             $('#shareWithTwitter').click(function () {
                 window.open("https://twitter.com/intent/tweet?url=" + copiedLink);
@@ -82,8 +83,8 @@
                 let win = window.open('https://api.whatsapp.com/send?text=' + copiedLink, '_blank');
                 win.focus();
             });
-            $('#shareWithICQ').click(function () {
-                let win = window.open('https://chatapi.viber.com/pa/send_message', '_blank');
+            $('#shareWithViber').click(function () {
+                let win = window.open('viber://forward?text=' + encodeURIComponent(copiedLink));
                 win.focus();
             });
             });

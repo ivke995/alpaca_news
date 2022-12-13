@@ -29,6 +29,10 @@
     </style>
 </head>
 <body>
+{{--        Script for viber chat API--}}
+{{--    <script src="https://apps.elfsight.com/p/platform.js" defer></script>--}}
+{{--    <div class="elfsight-app-434efe89-a563-496e-8a48-6fe06a3d6c07"></div>--}}
+
 @include('categories')
 <div>
     @if(session()->has('message'))
@@ -39,6 +43,7 @@
 
     @endif
 </div>
+
 
 
 {{--    @if (\Session::has('success'))--}}
@@ -63,6 +68,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share.js') }}"></script>
+
 
 @stack('scripts')
 
