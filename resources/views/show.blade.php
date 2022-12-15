@@ -75,7 +75,7 @@
                 window.open("https://www.facebook.com/sharer/sharer.php?u=" + copiedLink, 'facebook-share-dialog', "width=626, height=436");
             });
             $('#shareWithMail').click(function () {
-                let formattedBody = "This is cause link: " + (copiedLink);
+                let formattedBody = (copiedLink);
                 let mailToLink = "mailto:?subject= " + user + " wants you to donate to this noble cause&body=" + encodeURIComponent(formattedBody);
                 window.location.href = mailToLink;
             });
