@@ -26,11 +26,6 @@ By default the selected repository will be main,so after that in git run this co
 ```
 git checkout master
 ```
-After that path to your cloned repository with Git Bash and run this command:
-
-```
-git checkout master
-```
 
 After that run this command:
 
@@ -47,8 +42,10 @@ composer update
 Before you run project you must edit env variables inside .env file.
 
 ```
+APP_URL=http://localhost:8000
 DB_CONNECTION=mysql 
-DB_HOST=127.0.0.1 DB_PORT=3306 
+DB_HOST=127.0.0.1 
+DB_PORT=3306 
 DB_DATABASE=YOUR DB NAME 
 DB_USERNAME=YOUR DB USERNAME 
 DB_PASSWORD=YOUR DB PASSWORD 
@@ -58,6 +55,18 @@ Running migration and seeders To run migrations and seeders for you database, ru
 
 ```
 php artisan migrate:refresh --seed 
+```
+
+After that in Git Bash run this commands one by one:
+
+```
+php artisan key:generate
+```
+```
+php artisan storage:link
+```
+```
+php artisan proxies:get
 ```
 
 To run this project you can run following command:
